@@ -1,0 +1,23 @@
+{
+  "name": "generate-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yibingxiong/generate-skeleton.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yibingxiong/generate-skeleton/issues"
+  },
+  "homepage": "https://github.com/yibingxiong/generate-skeleton#readme",
+  "dependencies": {
+    "page-skeleton-webpack-plugin": "^0.10.12",
+    "puppeteer": "^1.11.0"
+  }
+}

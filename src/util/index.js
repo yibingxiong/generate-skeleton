@@ -27,8 +27,8 @@ const fs = require('fs')
 const os = require('os')
 const path = require('path')
 const fse = require('fs-extra')
-const weblog = require('webpack-log')
-const QRCode = require('qrcode')
+// const weblog = require('webpack-log')
+// const QRCode = require('qrcode')
 const { minify } = require('html-minifier')
 const { html2json, json2html } = require('html2json')
 const htmlBeautify = require('js-beautify').html_beautify
@@ -83,21 +83,21 @@ function addScriptTag(source, src, port) {
   return `${token[0]}${scriptTag}</body>${token[1]}`
 }
 
-function createLog(options) {
-  let logLevel = options.logLevel || 'info'
-  if (options.quiet === true) {
-    logLevel = 'silent'
-  }
-  if (options.noInfo === true) {
-    logLevel = 'warn'
-  }
+// function createLog(options) {
+//   let logLevel = options.logLevel || 'info'
+//   if (options.quiet === true) {
+//     logLevel = 'silent'
+//   }
+//   if (options.noInfo === true) {
+//     logLevel = 'warn'
+//   }
 
-  return weblog({
-    level: logLevel,
-    name: 'pswp',
-    timestamp: options.logTime
-  })
-}
+//   return weblog({
+//     level: logLevel,
+//     name: 'pswp',
+//     timestamp: options.logTime
+//   })
+// }
 
 /**
  * original author: pepterbe(https://github.com/peterbe/minimalcss)
@@ -176,40 +176,40 @@ const addDprAndFontSize = (html) => {
   return json2html(json)
 }
 
-const generateQR = async (text) => {
-  try {
-    return await QRCode.toDataURL(text)
-  } catch (err) {
-    return Promise.reject(err)
-  }
-}
+// const generateQR = async (text) => {
+//   try {
+//     return await QRCode.toDataURL(text)
+//   } catch (err) {
+//     return Promise.reject(err)
+//   }
+// }
 
-const getLocalIpAddress = () => {
-  const interfaces = os.networkInterfaces()
-  for (const devName in interfaces) { // eslint-disable-line guard-for-in
-    const iface = interfaces[devName]
-    for (const alias of iface) {
-      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
-        return alias.address
-      }
-    }
-  }
-}
+// const getLocalIpAddress = () => {
+//   const interfaces = os.networkInterfaces()
+//   for (const devName in interfaces) { // eslint-disable-line guard-for-in
+//     const iface = interfaces[devName]
+//     for (const alias of iface) {
+//       if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+//         return alias.address
+//       }
+//     }
+//   }
+// }
 
 const snakeToCamel = name => name.replace(/-([a-z])/g, (_, p1) => p1.toUpperCase())
 
 module.exports = {
-  createLog,
+  // createLog,
   sleep,
   sockWrite,
   snakeToCamel,
   addScriptTag,
-  generateQR,
+  // generateQR,
   writeShell,
   htmlMinify,
   outputSkeletonScreen,
   genScriptContent,
   addDprAndFontSize,
-  getLocalIpAddress,
+  // getLocalIpAddress,
   collectImportantComments
 }

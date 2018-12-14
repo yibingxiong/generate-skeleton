@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/yibingxiong/generate-skeleton#readme",
   "dependencies": {
+    "css-tree": "^1.0.0-alpha.29",
+    "fs-extra": "^7.0.1",
+    "html-minifier": "^3.5.21",
+    "html2json": "^1.0.2",
+    "js-beautify": "^1.8.9",
     "page-skeleton-webpack-plugin": "^0.10.12",
     "puppeteer": "^1.11.0",
     "webpack-log": "^2.0.0"

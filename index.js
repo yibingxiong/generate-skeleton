@@ -52,8 +52,7 @@ setTimeout(() => {
     .then(res => {
         fs.writeFileSync('./html.html', res.html, 'utf8');
         fs.writeFileSync('./styles.css', res.styles, 'utf8')
-        fs.writeFileSync('./cleanedHtml', res.cleanedHtml, 'utf8');
-        fs.writeFileSync('./rawHtml', res.rawHtml, 'utf8');
+        fs.writeFileSync('./rawHtml.html', res.rawHtml, 'utf8');
     })
     .catch(e => {
         console.log(e);

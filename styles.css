@@ -4,9 +4,9 @@
 .sk-transparent {
     color: transparent !important;
   }
-.sk-text-14-3 {
-    background-image: linear-gradient(transparent 14.3%, #EEEEEE 0%, #EEEEEE 85.7%, transparent 0%) !important;
-    background-size: 100% 0.6rem;
+.sk-text-25-0 {
+    background-image: linear-gradient(transparent 25.0%, #EEEEEE 0%, #EEEEEE 75.0%, transparent 0%) !important;
+    background-size: 100% 1.1rem;
     position: relative !important;
   }
 .sk-text {
@@ -16,13 +16,13 @@
     color: transparent !important;
     background-repeat: repeat-y !important;
   }
-.sk-text-10-0 {
-    background-image: linear-gradient(transparent 10.0%, #EEEEEE 0%, #EEEEEE 90.0%, transparent 0%) !important;
-    background-size: 100% 0.4rem;
+.sk-text-30-0 {
+    background-image: linear-gradient(transparent 30.0%, #EEEEEE 0%, #EEEEEE 70.0%, transparent 0%) !important;
+    background-size: 100% 1.1rem;
     position: relative !important;
   }
-.sk-text-6-3 {
-    background-image: linear-gradient(transparent 6.3%, #EEEEEE 0%, #EEEEEE 93.7%, transparent 0%) !important;
+.sk-text-14-3 {
+    background-image: linear-gradient(transparent 14.3%, #EEEEEE 0%, #EEEEEE 85.7%, transparent 0%) !important;
     background-size: 100% 0.4rem;
     position: relative !important;
   }
@@ -38,11 +38,6 @@
   }
 .sk-text-32-2 {
     background-image: linear-gradient(transparent 32.2%, #EEEEEE 0%, #EEEEEE 67.8%, transparent 0%) !important;
-    background-size: 100% 1.2rem;
-    position: relative !important;
-  }
-.sk-text-36-7 {
-    background-image: linear-gradient(transparent 36.7%, #EEEEEE 0%, #EEEEEE 63.3%, transparent 0%) !important;
     background-size: 100% 1.2rem;
     position: relative !important;
   }

@@ -48,7 +48,7 @@ const pluginDefaultConfig = {
 let seleton = new Skeleton(pluginDefaultConfig, () => {});
 
 setTimeout(() => {
-    seleton.genHtml('http://mtongzhen.58.com/321324207000#/')
+    seleton.genHtml('http://mtongzhen.58.com/431382202000#/')
     .then(res => {
         fs.writeFileSync('./html.html', res.html, 'utf8');
         fs.writeFileSync('./styles.css', res.styles, 'utf8')

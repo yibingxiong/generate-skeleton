@@ -24,11 +24,8 @@
 
 const { promisify } = require('util')
 const fs = require('fs')
-// const os = require('os')
 const path = require('path')
 const fse = require('fs-extra')
-// const weblog = require('webpack-log')
-// const QRCode = require('qrcode')
 const { minify } = require('html-minifier')
 const { html2json, json2html } = require('html2json')
 const htmlBeautify = require('js-beautify').html_beautify
@@ -82,22 +79,6 @@ function addScriptTag(source, src, port) {
     `
   return `${token[0]}${scriptTag}</body>${token[1]}`
 }
-
-// function createLog(options) {
-//   let logLevel = options.logLevel || 'info'
-//   if (options.quiet === true) {
-//     logLevel = 'silent'
-//   }
-//   if (options.noInfo === true) {
-//     logLevel = 'warn'
-//   }
-
-//   return weblog({
-//     level: logLevel,
-//     name: 'pswp',
-//     timestamp: options.logTime
-//   })
-// }
 
 /**
  * original author: pepterbe(https://github.com/peterbe/minimalcss)

@@ -594,7 +594,6 @@ var Skeleton = (function (exports) {
     const excludesEle = excludes.length ? Array.from($$(excludes.join(','))) : [];
    
     const rootElement = document.documentElement;
-    console.log('222222228')
     const texts = [];
     const buttons = [];
     const hasImageBackEles = [];
@@ -610,23 +609,16 @@ var Skeleton = (function (exports) {
       toRemove.push(...$$(remove.join(',')));
     }
 
-    console.log('2222222213')
     if (button && button.excludes.length) {
       // translate selector to element
       button.excludes = Array.from($$(button.excludes.join(',')));
     }
-    console.log('2222222214');
   [svg, pseudo, image].forEach(type => {
-    console.log('222222215');
       if (type.shapeOpposite.length) {
-        console.log('2222222216');
         type.shapeOpposite = Array.from($$(type.shapeOpposite.join(',')));
-        console.log('22222222217');
       }
-      console.log('22222222222218');
     })
 
-    console.log('2222222212')
     ;(function preTraverse(ele) {
       const styles = getComputedStyle(ele);
       const hasPseudoEle = checkHasPseudoEle(ele);
@@ -644,7 +636,6 @@ var Skeleton = (function (exports) {
         ele.style.border = 'none';
       }
 
-    console.log('2222222211')
       if (ele.children.length > 0 && /UL|OL/.test(ele.tagName)) {
         listHandle(ele);
       }
@@ -688,10 +679,8 @@ var Skeleton = (function (exports) {
       }
     const grayEle = grayBlock.length ? Array.from($$(grayBlock.join(','))) : [];
     for (let i = 0; i < grayEle.length; i++) {
-      console.log(grayEle[i]);
       grayBlocks.push(grayEle[i]);
     }
-    console.log('222222229')
     }(rootElement));
 
     svgs.forEach(e => svgHandler(e, svg, cssUnit, decimal));
@@ -720,15 +709,9 @@ var Skeleton = (function (exports) {
      * before walk
      */
     // 将 `hide` 队列中的元素通过调节透明度为 0 来进行隐藏
-    console.log(options)
-    console.log('222222')
     if (hide.length) {
-      console.log('------------------------444')
       const hideEle = $$(hide.join(','));
-      console.log(hideEle.length)
       Array.from(hideEle).forEach(ele => {
-        console.log('---------------------');
-        console.log(ele);
         setOpacity(ele)
         }
         );
@@ -737,20 +720,16 @@ var Skeleton = (function (exports) {
      * walk in process
      */
 
-    console.log('222223')
     traverse(options);
-    console.log('222224')
     /**
      * add `<style>`
      */
     let rules = '';
 
-    console.log('222224')
     for (const [selector, rule] of styleCache) {
       rules += `${selector} ${rule}\n`;
     }
 
-    console.log('222225')
     const styleEle = document.createElement('style');
 
     if (!window.createPopup) { // For Safari

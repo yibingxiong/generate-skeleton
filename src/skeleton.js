@@ -39,28 +39,22 @@ class Skeleton {
 
   // Launch headless Chrome by puppeteer and load script
   async initialize() {
-    console.log('initialize')
     const { headless } = this.options
     const { log } = this
     try {
       // load script content from `script` folder
       this.scriptContent = await genScriptContent()
-      console.log('1-----');
       // Launch the browser
       this.browser = await puppeteer.launch({ headless:false, devtools:true })  // 得改
-      console.log('2------')
     } catch (err) {
       console.log(err);
-      console.log('3-------')
       log(err)
     }
   }
 
   async newPage() {
     const { device, debug } = this.options
-    console.log('page-----1')
     const page = await this.browser.newPage()
-    console.log('page----')
     this.pages.add(page)
     await page.emulate(devices[device])
     if (debug) {
@@ -133,7 +127,6 @@ class Skeleton {
     if (response && !response.ok()) {
       throw new Error(`${response.status} on ${url}`)
     }
-
 
     await this.makeSkeleton(page)
 

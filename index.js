@@ -35,8 +35,8 @@ const pluginDefaultConfig = {
     defer: 5000,
     excludes: [],
     remove: [],
-    hide: [],
-    grayBlock: ['.user-detail-logo'],
+    hide: ['.homefootBar', '.homefootBar_hudu', '.swipe-tip-con'],
+    grayBlock: ['.user-detail-logo', '.return-module', '.headlines-image', '.return-con-ab'],
     cookies: [],
     cssUnit: 'rem',
     decimal: 1,
@@ -48,7 +48,7 @@ const pluginDefaultConfig = {
 let seleton = new Skeleton(pluginDefaultConfig, () => {});
 
 setTimeout(() => {
-    seleton.genHtml('https://mtongzhen.58.com/542624202000#/')
+    seleton.genHtml('http://mtongzhen.58.com/321324207000#/')
     .then(res => {
         fs.writeFileSync('./html.html', res.html, 'utf8');
         fs.writeFileSync('./styles.css', res.styles, 'utf8')

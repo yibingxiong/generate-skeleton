@@ -592,7 +592,7 @@ var Skeleton = (function (exports) {
   function traverse(options) {
     const { remove, excludes, text, image, button, svg, grayBlock, pseudo, cssUnit, decimal } = options;
     const excludesEle = excludes.length ? Array.from($$(excludes.join(','))) : [];
-    const grayEle = grayBlock.length ? Array.from($$(grayBlock.join(','))) : [];
+   
     const rootElement = document.documentElement;
     console.log('222222228')
     const texts = [];
@@ -633,9 +633,7 @@ var Skeleton = (function (exports) {
       if (!inViewPort(ele) || DISPLAY_NONE.test(ele.getAttribute('style'))) {
         return toRemove.push(ele)
       }
-      if (~grayEle.indexOf(ele)) { // eslint-disable-line no-bitwise
-        return grayBlocks.push(ele)
-      }
+      
       if (~excludesEle.indexOf(ele)) return false // eslint-disable-line no-bitwise
 
       if (hasPseudoEle) {
@@ -688,6 +686,11 @@ var Skeleton = (function (exports) {
       ) {
         return texts.push(ele)
       }
+    const grayEle = grayBlock.length ? Array.from($$(grayBlock.join(','))) : [];
+    for (let i = 0; i < grayEle.length; i++) {
+      console.log(grayEle[i]);
+      grayBlocks.push(grayEle[i]);
+    }
     console.log('222222229')
     }(rootElement));
 
@@ -720,8 +723,15 @@ var Skeleton = (function (exports) {
     console.log(options)
     console.log('222222')
     if (hide.length) {
+      console.log('------------------------444')
       const hideEle = $$(hide.join(','));
-      Array.from(hideEle).forEach(ele => setOpacity(ele));
+      console.log(hideEle.length)
+      Array.from(hideEle).forEach(ele => {
+        console.log('---------------------');
+        console.log(ele);
+        setOpacity(ele)
+        }
+        );
     }
     /**
      * walk in process

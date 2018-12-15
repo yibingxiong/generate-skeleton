@@ -22,10 +22,7 @@
 
 'use strict'
 
-const staticPath = '__webpack_page_skeleton__'
-
 const defaultOptions = {
-  port: '8989',
   // ['spin', 'chiaroscuro', 'shine'],
   loading: 'spin',
   text: {
@@ -56,7 +53,6 @@ const defaultOptions = {
     shapeOpposite: []
   },
   device: 'iPhone 6 Plus',
-  debug: false,
   minify: {
     minifyCSS: { level: 2 },
     removeComments: true,
@@ -68,7 +64,6 @@ const defaultOptions = {
   remove: [],
   hide: [],
   grayBlock: [],
-  cookies: [],
   headless: true,
   h5Only: false,
   // or 'vw|vh|vmin|vmax'
@@ -102,5 +97,4 @@ const htmlBeautifyConfig = {
 module.exports = {
   htmlBeautifyConfig,
   defaultOptions,
-  staticPath
 }

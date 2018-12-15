@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yibingxiong/generate-skeleton#readme",
   "dependencies": {
+    "commander": "^2.19.0",
     "css-tree": "^1.0.0-alpha.29",
     "fs-extra": "^7.0.1",
     "html-minifier": "^3.5.21",

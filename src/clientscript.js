@@ -759,11 +759,23 @@ var Skeleton = (function (exports) {
         break
     }
   }
-
+  function createDocumentFragment(txt) {
+      const template = `<div class='child'>${txt}</div>`;
+      let frag = document.createRange().createContextualFragment(template);
+      return frag.firstElementChild.firstElementChild;
+  }
   function getHtmlAndStyle() {
     const root = document.documentElement;
     const rawHtml = root.outerHTML;
     const styles = Array.from($$('style')).map(style => style.innerHTML || style.innerText);
+
+
+    console.log(styles)
+    const styleStr = `<style type="text/css">${styles.join('')}</style>`;
+    const styleEle = createDocumentFragment(styleStr);
+    // FIXME
+    document.body.firstElementChild.insertBefore(styleEle, document.body.firstElementChild.firstElementChild);
+    const skeletonHtml = document.body.innerHTML;
     Array.from($$(AFTER_REMOVE_TAGS.join(','))).forEach(ele => removeElement(ele));
     // fix html parser can not handle `<div ubt-click=3659 ubt-data="{&quot;restaurant_id&quot;:1236835}" >`
     // need replace `&quot;` into `'`
@@ -771,7 +783,8 @@ var Skeleton = (function (exports) {
     return {
       rawHtml,
       styles,
-      cleanedHtml
+      cleanedHtml,
+      skeletonHtml,
     }
   }
 

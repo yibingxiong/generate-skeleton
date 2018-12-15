@@ -41,6 +41,11 @@
     background-size: 100% 1.2rem;
     position: relative !important;
   }
+.sk-text-36-7 {
+    background-image: linear-gradient(transparent 36.7%, #EEEEEE 0%, #EEEEEE 63.3%, transparent 0%) !important;
+    background-size: 100% 1.2rem;
+    position: relative !important;
+  }
 .sk-text-11-9 {
     background-image: linear-gradient(transparent 11.9%, #EEEEEE 0%, #EEEEEE 88.1%, transparent 0%) !important;
     background-size: 100% 0.6rem;

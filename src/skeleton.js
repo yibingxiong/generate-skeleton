@@ -28,27 +28,25 @@ const { parse, toPlainObject, fromPlainObject, generate } = require('css-tree')
 const { sleep, genScriptContent, htmlMinify, collectImportantComments } = require('./util')
 
 class Skeleton {
-  constructor(options = {}, log) {
+  constructor(options = {}) {
     this.options = options
     this.browser = null
     this.scriptContent = ''
     this.pages = new Set()
-    this.log = log
-    this.initialize()
   }
 
   // Launch headless Chrome by puppeteer and load script
-  async initialize() {
+  async launchBrowser() {
     const { headless } = this.options
-    const { log } = this
     try {
       // load script content from `script` folder
       this.scriptContent = await genScriptContent()
       // Launch the browser
-      this.browser = await puppeteer.launch({ headless:false, devtools:true })  // 得改
+      this.browser = await puppeteer.launch({ headless, devtools: !headless })
+      return Promise.resolve({code: 0, msg: 'browser has been launch'});
     } catch (err) {
       console.log(err);
-      log(err)
+      return Promise.reject({code: 1, msg: 'browser launch error'});
     }
   }
 
@@ -59,7 +57,7 @@ class Skeleton {
     await page.emulate(devices[device])
     if (debug) {
       page.on('console', (...args) => {
-        this.log.info(...args)
+          console.log(args) 
       })
     }
     return page
@@ -130,7 +128,7 @@ class Skeleton {
 
     await this.makeSkeleton(page)
 
-    const { styles, cleanedHtml, rawHtml } = await page.evaluate(() => Skeleton.getHtmlAndStyle())
+    const { styles, cleanedHtml, rawHtml, skeletonHtml } = await page.evaluate(() => Skeleton.getHtmlAndStyle())
 
     const stylesheetAstArray = styles.map((style) => {
       const ast = parse(style, {
@@ -255,7 +253,8 @@ class Skeleton {
       route: await page.evaluate('window.location.pathname'),
       html: htmlMinify(shellHtml, false),
       rawHtml: htmlMinify(rawHtml, false),
-      styles
+      styles,
+      skeletonHtml: htmlMinify(skeletonHtml, false)
     }
     await this.closePage(page) // todo
     return Promise.resolve(result)
@@ -269,7 +268,6 @@ class Skeleton {
   }
 
   async destroy() {
-    const { log } = this
     if (this.pages.size) {
       const promises = []
       for (const page of this.pages) {
@@ -278,7 +276,7 @@ class Skeleton {
       try {
         await Promise.all(promises)
       } catch (err) {
-        log(err)
+        console.error(err);
       }
       this.pages = null
     }

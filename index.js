@@ -1,7 +1,6 @@
 const Skeleton =  require('./src/skeleton.js');
 const fs = require('fs');
 const pluginDefaultConfig = {
-    port: '8989',
     text: {
       color: '#EEEEEE'
     },
@@ -43,18 +42,38 @@ const pluginDefaultConfig = {
     logLevel: 'info',
     quiet: false,
     noInfo: false,
-    logTime: true
+    logTime: true,
+    headless: false,
+    debug: false,
   }
-let seleton = new Skeleton(pluginDefaultConfig, () => {});
+let seleton = new Skeleton(pluginDefaultConfig);
 
-setTimeout(() => {
-    seleton.genHtml('http://mtongzhen.58.com/431382202000#/')
-    .then(res => {
-        fs.writeFileSync('./html.html', res.html, 'utf8');
-        fs.writeFileSync('./styles.css', res.styles, 'utf8')
-        fs.writeFileSync('./rawHtml.html', res.rawHtml, 'utf8');
-    })
-    .catch(e => {
-        console.log(e);
-    })
-}, 10000);
+async function main() {
+  try {
+
+    let launchInfo = await seleton.launchBrowser()
+    let res = await seleton.genHtml('http://mtongzhen.58.com/431382202000#/');
+    fs.writeFileSync('./html.html', res.html, 'utf8');
+    fs.writeFileSync('./styles.css', res.styles, 'utf8')
+    fs.writeFileSync('./rawHtml.html', res.rawHtml, 'utf8');
+    fs.writeFileSync('./skeletonHtml.html', res.skeletonHtml);
+  } catch (e) {
+    console.error(e);
+  }
+
+}
+
+
+// setTimeout(() => {
+//     seleton.genHtml('http://mtongzhen.58.com/431382202000#/')
+//     .then(res => {
+//         fs.writeFileSync('./html.html', res.html, 'utf8');
+//         fs.writeFileSync('./styles.css', res.styles, 'utf8')
+//         fs.writeFileSync('./rawHtml.html', res.rawHtml, 'utf8');
+//     })
+//     .catch(e => {
+//         console.log(e);
+//     })
+// }, 10000);
+
+main();

@@ -30,7 +30,7 @@ const { minify } = require('html-minifier')
 const { html2json, json2html } = require('html2json')
 const htmlBeautify = require('js-beautify').html_beautify
 const { htmlBeautifyConfig } = require('../config/config')
-
+const chalk = require('chalk');
 const getCleanedShellHtml = (html) => {
   const STYLE_REG = /<style>[\s\S]+?<\/style>/
   const BODY_REG = /<body>([\s\S]+?)<\/body>/
@@ -157,40 +157,29 @@ const addDprAndFontSize = (html) => {
   return json2html(json)
 }
 
-// const generateQR = async (text) => {
-//   try {
-//     return await QRCode.toDataURL(text)
-//   } catch (err) {
-//     return Promise.reject(err)
-//   }
-// }
-
-// const getLocalIpAddress = () => {
-//   const interfaces = os.networkInterfaces()
-//   for (const devName in interfaces) { // eslint-disable-line guard-for-in
-//     const iface = interfaces[devName]
-//     for (const alias of iface) {
-//       if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
-//         return alias.address
-//       }
-//     }
-//   }
-// }
-
 const snakeToCamel = name => name.replace(/-([a-z])/g, (_, p1) => p1.toUpperCase())
 
+const log = {
+  error: function(val) {
+    throw new Error(chalk.red(val));
+  },
+  success: function(val) {
+    console.log(chalk.green('success:' + val));
+  },
+  warn: function(val) {
+    console.log(chalk.yellow('warning:' + val));
+  }
+}
 module.exports = {
-  // createLog,
   sleep,
   sockWrite,
   snakeToCamel,
   addScriptTag,
-  // generateQR,
   writeShell,
   htmlMinify,
   outputSkeletonScreen,
   genScriptContent,
   addDprAndFontSize,
-  // getLocalIpAddress,
-  collectImportantComments
+  collectImportantComments,
+  log,
 }

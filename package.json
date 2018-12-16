@@ -6,17 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "skr": "./src/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yibingxiong/generate-skeleton.git"
   },
-  "author": "",
+  "author": "bigBear",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yibingxiong/generate-skeleton/issues"
   },
   "homepage": "https://github.com/yibingxiong/generate-skeleton#readme",
   "dependencies": {
+    "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "css-tree": "^1.0.0-alpha.29",
     "fs-extra": "^7.0.1",

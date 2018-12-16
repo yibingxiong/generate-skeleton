@@ -34,6 +34,7 @@ const defaultOptions = {
     color: '#EFEFEF',
     shapeOpposite: []
   },
+  cookies: [],
   button: {
     color: '#EFEFEF',
     excludes: []
@@ -68,11 +69,7 @@ const defaultOptions = {
   h5Only: false,
   // or 'vw|vh|vmin|vmax'
   cssUnit: 'rem',
-  decimal: 4,
-  logLevel: 'info',
-  quiet: false,
-  noInfo: false,
-  logTime: true
+  decimal: 1
 }
 
 const htmlBeautifyConfig = {

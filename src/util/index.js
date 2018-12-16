@@ -31,6 +31,7 @@ const { html2json, json2html } = require('html2json')
 const htmlBeautify = require('js-beautify').html_beautify
 const { htmlBeautifyConfig } = require('../config/config')
 const chalk = require('chalk');
+
 const getCleanedShellHtml = (html) => {
   const STYLE_REG = /<style>[\s\S]+?<\/style>/
   const BODY_REG = /<body>([\s\S]+?)<\/body>/
@@ -170,6 +171,19 @@ const log = {
     console.log(chalk.yellow('warning:' + val));
   }
 }
+
+/**
+ * 获取版本号
+ */
+function getVersion() {
+    try {
+      let str = fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf8');
+      return JSON.parse(str).version;
+    } catch(e) {
+      return '0';
+    }
+}
+
 module.exports = {
   sleep,
   sockWrite,
@@ -182,4 +196,5 @@ module.exports = {
   addDprAndFontSize,
   collectImportantComments,
   log,
+  getVersion,
 }

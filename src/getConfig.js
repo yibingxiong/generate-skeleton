@@ -1,5 +1,5 @@
 const program = require('commander');
-const { log } = require('./util');
+const { log, getVersion } = require('./util');
 const fs = require('fs');
 const { defaultOptions } = require('./config/config');
 
@@ -7,9 +7,10 @@ function list(val) {
     return val.split(',');
 }
 program
-    .version('1.0.0')
+    .version(getVersion())
     .option('-u, --url [value]', '你要生成骨架屏的url, 必须在你的机器上可访问')
     .option('-o, --output [value]', '骨架屏输出路径')
+    .option('--loading [spin|chiaroscuro|shine]', 'loading的样式',()=>{}, 'spin')
     .option('-f, --file [value]', '配置文件路径')
     .option('--hide <items>', '要隐藏的元素的selector', list, [])
     .option('--grayBlock <items>', '要灰化的元素的selector', list, [])
@@ -28,7 +29,8 @@ const cmdConf = {
     output: program.output,
     url: program.url,
     device: program.device,
-    decimal: program.decimal
+    decimal: program.decimal,
+    loading: program.loading
 }
 
 for (const k in cmdConf) {

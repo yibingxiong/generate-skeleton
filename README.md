@@ -1,8 +1,8 @@
-# generate-skeleton &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yibingxiong/generate-skeleton/blob/master/LICENSE)
+# generate-skeleton &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yibingxiong/generate-skeleton/blob/master/LICENSE) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 generate-skeleton 是一个生成一个可访问的网页的骨架屏样式的命令行工具
 
-- **核心依赖:** generate-skeleton的核心依赖饿了么前端团队做的[page-skeleton-webpack-plugin](https://github.com/ElemeFE/page-skeleton-webpack-plugin)和[puppeteer](https://github.com/GoogleChrome/puppeteer), 本工具所做的只是将page-skeleton-webpack-plugin改成了一个命令行工具
+- **核心依赖:** generate-skeleton的核心依赖是饿了么前端团队做的[page-skeleton-webpack-plugin](https://github.com/ElemeFE/page-skeleton-webpack-plugin)和[puppeteer](https://github.com/GoogleChrome/puppeteer), 本工具所做的只是将page-skeleton-webpack-plugin改成了一个命令行工具
 
 - **主要特性:** 可以使用简单命令生成一个页面的骨架屏html和css, 可以配置哪些元素应该被灰化,哪些应该被隐藏. 关于其生成原理, 大家可以参看Jocs大神的演讲稿[一种自动化生成骨架屏的方案](https://github.com/Jocs/jocs.github.io/issues/22)
 
@@ -11,6 +11,7 @@ generate-skeleton 是一个生成一个可访问的网页的骨架屏样式的�
 ```bash
 npm install -g generate-skeleton 
 ```
+因为要安装一个chromium, 所以会比较慢, 耐心等待吧.
 
 ## 快速试用
 
@@ -22,7 +23,7 @@ skr -u https://www.baidu.com/ -o baidu.skeleton.html
 
 ![运行效果](./docs/img/运行效果.jpg);
 
-运行后直接直接在指定的路径生成骨架屏css和html.
+运行后直接在指定的路径生成骨架屏css和html.
 
 我们把他放到静态服务器看下, 结果如下
 

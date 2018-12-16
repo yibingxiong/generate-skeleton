@@ -1,6 +1,6 @@
 {
   "name": "generate-skeleton",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,16 @@
   "bin": {
     "skr": "./src/index.js"
   },
+  "keywords": [
+		"skeleton",
+		"generate skeleton",
+		"骨架屏",
+		"生成骨架屏",
+		"生成骨架屏命令行工具",
+		"cli",
+    "命令行工具",
+    "skr"
+	],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yibingxiong/generate-skeleton.git"

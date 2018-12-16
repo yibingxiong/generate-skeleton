@@ -2,7 +2,7 @@
 
 generate-skeleton 是一个生成一个可访问的网页的骨架屏样式的命令行工具
 
-- **核心依赖:** generate-skeleton的核心依赖是饿了么前端团队所做的[page-skeleton-webpack-plugin](https://github.com/ElemeFE/page-skeleton-webpack-plugin)和[puppeteer](https://github.com/GoogleChrome/puppeteer), 本工具所做的只是将page-skeleton-webpack-plugin改成了一个命令行工具
+- **核心依赖:** generate-skeleton的核心依赖饿了么前端团队做的[page-skeleton-webpack-plugin](https://github.com/ElemeFE/page-skeleton-webpack-plugin)和[puppeteer](https://github.com/GoogleChrome/puppeteer), 本工具所做的只是将page-skeleton-webpack-plugin改成了一个命令行工具
 
 - **主要特性:** 可以使用简单命令生成一个页面的骨架屏html和css, 可以配置哪些元素应该被灰化, 哪些该被隐藏. 关于其生成原理, 大家可以参看Jocs大神的演讲稿[一种自动化生成骨架屏的方案](https://github.com/Jocs/jocs.github.io/issues/22)
 

@@ -24,7 +24,7 @@
 
 const defaultOptions = {
   // ['spin', 'chiaroscuro', 'shine'],
-  loading: 'spin',
+  loading: 'shine',
   text: {
     color: '#EEEEEE'
   },
@@ -53,7 +53,7 @@ const defaultOptions = {
     shape: 'circle',
     shapeOpposite: []
   },
-  device: 'iPhone 6 Plus',
+  device: 'iPhone 6',
   minify: {
     minifyCSS: { level: 2 },
     removeComments: true,

@@ -13,7 +13,7 @@ program
     .version(getVersion())
     .option('-u, --url [value]', '你要生成骨架屏的url, 必须在你的机器上可访问')
     .option('-o, --output [value]', '骨架屏输出路径')
-    .option('--loading [spin|chiaroscuro|shine]', 'loading的样式',()=>{}, 'spin')
+    .option('--loading [spin|chiaroscuro|shine]', 'loading的样式')
     .option('-f, --file [value]', '配置文件路径')
     .option('--hide <items>', '要隐藏的元素的selector', list)
     .option('--grayBlock <items>', '要灰化的元素的selector', list)

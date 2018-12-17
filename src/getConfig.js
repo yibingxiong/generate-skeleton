@@ -4,6 +4,9 @@ const fs = require('fs');
 const { defaultOptions } = require('./config/config');
 
 function list(val) {
+    if(!val) {
+        return;
+    }
     return val.split(',');
 }
 program
@@ -12,8 +15,8 @@ program
     .option('-o, --output [value]', '骨架屏输出路径')
     .option('--loading [spin|chiaroscuro|shine]', 'loading的样式',()=>{}, 'spin')
     .option('-f, --file [value]', '配置文件路径')
-    .option('--hide <items>', '要隐藏的元素的selector', list, [])
-    .option('--grayBlock <items>', '要灰化的元素的selector', list, [])
+    .option('--hide <items>', '要隐藏的元素的selector', list)
+    .option('--grayBlock <items>', '要灰化的元素的selector', list)
     .option('-d, --debug', '是否开启debug模式')
     .option('--headless', '是否不开启浏览器')
     .option('-c, --cssUnit [value]', 'css长度单位')
